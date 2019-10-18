@@ -1,5 +1,6 @@
 package com.rafaelneiva.androidanimations.ui.main
 
+import android.animation.AnimatorInflater
 import android.os.Bundle
 import android.os.Handler
 import android.view.LayoutInflater
@@ -19,34 +20,38 @@ class BasicFragment : Fragment() {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_basic, container, false)
 
-        xmlAnimation(root)
+        xmlViewAnimation(root)
+
+        xmlObjAnimation(root)
+
+        xmlObjAnimationSet(root)
 
         return root
     }
 
-    private fun xmlAnimation(root: View) {
-        val xmlEnterAnim = AnimationUtils.loadAnimation(requireContext(), R.anim.slide_fade_from_left)
-        val xmlExitAnim = AnimationUtils.loadAnimation(requireContext(), R.anim.slide_fade_to_left)
-        xmlEnterAnim.setAnimationListener(object : Animation.AnimationListener {
+    private fun xmlViewAnimation(root: View) {
+        val enterAnim = AnimationUtils.loadAnimation(requireContext(), R.anim.slide_fade_from_left)
+        val exitAnim = AnimationUtils.loadAnimation(requireContext(), R.anim.slide_fade_to_left)
+        enterAnim.setAnimationListener(object : Animation.AnimationListener {
             override fun onAnimationRepeat(animation: Animation?) {
 
             }
 
             override fun onAnimationEnd(animation: Animation?) {
-                Handler().postDelayed({ root.tvAnimXml.startAnimation(xmlExitAnim) }, 2000)
+                Handler().postDelayed({ root.tvAnimXml.startAnimation(exitAnim) }, 2000)
             }
 
             override fun onAnimationStart(animation: Animation?) {
 
             }
         })
-        xmlExitAnim.setAnimationListener(object : Animation.AnimationListener {
+        exitAnim.setAnimationListener(object : Animation.AnimationListener {
             override fun onAnimationRepeat(animation: Animation?) {
 
             }
 
             override fun onAnimationEnd(animation: Animation?) {
-                root.tvAnimXml.startAnimation(xmlEnterAnim)
+                root.tvAnimXml.startAnimation(enterAnim)
             }
 
             override fun onAnimationStart(animation: Animation?) {
@@ -54,7 +59,25 @@ class BasicFragment : Fragment() {
             }
         })
 
-        root.tvAnimXml.startAnimation(xmlEnterAnim)
+        root.tvAnimXml.startAnimation(enterAnim)
+    }
+
+    private fun xmlObjAnimation(root: View) {
+        val enterAnim = AnimatorInflater.loadAnimator(requireContext(), R.animator.scale_up)
+
+        enterAnim.apply {
+            setTarget(root.tvObjAnimXml)
+            start()
+        }
+    }
+
+    private fun xmlObjAnimationSet(root: View) {
+        val enterAnim = AnimatorInflater.loadAnimator(requireContext(), R.animator.rotate_clockwise)
+
+        enterAnim.apply {
+            setTarget(root.tvObjSetAnimXml)
+            start()
+        }
     }
 
     companion object {

@@ -10,6 +10,22 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="@dimen/default_margin"
-        android:text="@string/animation_with_xml"/>
+        android:text="@string/view_animation_with_xml"/>
+
+    <TextView
+        android:id="@+id/tvObjAnimXml"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/default_margin"
+        android:text="@string/obj_animation_with_xml"/>
+
+    <TextView
+        android:id="@+id/tvObjSetAnimXml"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/default_margin"
+        android:text="@string/anim_set_with_xml"/>
 
 </LinearLayout>

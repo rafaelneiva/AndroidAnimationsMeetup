@@ -3,5 +3,7 @@
     <string name="tab_text_1">Basic</string>
     <string name="tab_text_2">Drawable</string>
     <string name="tab_text_3">Transition</string>
-    <string name="animation_with_xml">Animation with XML</string>
+    <string name="view_animation_with_xml">View animation with XML</string>
+    <string name="obj_animation_with_xml">Object animation with XML</string>
+    <string name="anim_set_with_xml">Animator set with XML</string>
 </resources>
