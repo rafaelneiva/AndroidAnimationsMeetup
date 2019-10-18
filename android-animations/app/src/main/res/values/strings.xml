@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Android Animations</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_1">Basic</string>
+    <string name="tab_text_2">Drawable</string>
+    <string name="tab_text_3">Transition</string>
+    <string name="animation_with_xml">Animation with XML</string>
 </resources>
