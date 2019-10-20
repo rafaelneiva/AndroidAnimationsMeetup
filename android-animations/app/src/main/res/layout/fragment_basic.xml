@@ -1,31 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:clipToPadding="false"
+    android:padding="32dp">
 
-    <TextView
-        android:id="@+id/tvAnimXml"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="@dimen/default_margin"
-        android:text="@string/view_animation_with_xml"/>
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tvObjAnimXml"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="@dimen/default_margin"
-        android:text="@string/obj_animation_with_xml"/>
+        <TextView
+            android:id="@+id/tvAnimXml"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/default_margin"
+            android:text="@string/view_animation_with_xml" />
 
-    <TextView
-        android:id="@+id/tvObjSetAnimXml"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="@dimen/default_margin"
-        android:text="@string/anim_set_with_xml"/>
+        <TextView
+            android:id="@+id/tvObjAnimXml"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/default_margin"
+            android:text="@string/obj_animation_with_xml" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/tvObjSetAnimXml"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/default_margin"
+            android:text="@string/anim_set_with_xml" />
+
+        <FrameLayout
+            android:id="@+id/flStateListAnimator"
+            android:layout_width="240dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="72dp"
+            android:layout_marginBottom="32dp"
+            android:background="?colorAccent"
+            android:foreground="@drawable/white_ripple" />
+
+        <TextView
+            android:id="@+id/tvObjAnimator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="32dp"
+            android:text="@string/object_animator"
+            android:textSize="24sp" />
+
+    </LinearLayout>
+
+</ScrollView>

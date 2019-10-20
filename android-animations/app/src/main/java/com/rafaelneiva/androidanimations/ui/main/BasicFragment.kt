@@ -1,6 +1,7 @@
 package com.rafaelneiva.androidanimations.ui.main
 
 import android.animation.AnimatorInflater
+import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.os.Handler
 import android.view.LayoutInflater
@@ -15,8 +16,8 @@ import kotlinx.android.synthetic.main.fragment_basic.view.*
 class BasicFragment : Fragment() {
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_basic, container, false)
 
@@ -25,6 +26,8 @@ class BasicFragment : Fragment() {
         xmlObjAnimation(root)
 
         xmlObjAnimationSet(root)
+
+        xmlStateListAnimator(root)
 
         return root
     }
@@ -77,6 +80,19 @@ class BasicFragment : Fragment() {
         enterAnim.apply {
             setTarget(root.tvObjSetAnimXml)
             start()
+        }
+    }
+
+    private fun xmlStateListAnimator(root: View) {
+        root.flStateListAnimator.stateListAnimator = AnimatorInflater.loadStateListAnimator(requireContext(), R.animator.translation_z_up)
+        root.flStateListAnimator.setOnClickListener {
+            if (root.tvObjAnimator.alpha == 1f) {
+                ObjectAnimator.ofFloat(root.tvObjAnimator, "alpha", 1f, 0f).setDuration(1000).start()
+                ObjectAnimator.ofFloat(root.tvObjAnimator, View.TRANSLATION_Y, 0f, 50f).setDuration(1000).start()
+            } else {
+                ObjectAnimator.ofFloat(root.tvObjAnimator, "alpha", 0f, 1f).setDuration(1000).start()
+                ObjectAnimator.ofFloat(root.tvObjAnimator, View.TRANSLATION_Y, 50f, 0f).setDuration(1000).start()
+            }
         }
     }
 
