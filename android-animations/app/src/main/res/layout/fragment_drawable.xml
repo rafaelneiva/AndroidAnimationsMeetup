@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#fff"
     android:clipToPadding="false"
     android:padding="32dp">
@@ -15,7 +16,7 @@
         <ImageView
             android:id="@+id/ivAnimationDrawable"
             android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_height="120dp"
             android:layout_gravity="center"
             tools:ignore="ContentDescription"
             tools:src="@drawable/walk1" />
@@ -25,6 +26,21 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/animation_drawable" />
+
+        <ImageView
+            android:id="@+id/ivAnimVecDrawable"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="32dp"
+            android:src="@drawable/ic_loading_dots"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/animated_vector_drawable" />
 
     </LinearLayout>
 

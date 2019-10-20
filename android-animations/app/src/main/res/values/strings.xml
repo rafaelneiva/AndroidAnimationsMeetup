@@ -8,4 +8,5 @@
     <string name="anim_set_with_xml">Animator set with XML</string>
     <string name="object_animator">Object Animator</string>
     <string name="animation_drawable">Animation drawable</string>
+    <string name="animated_vector_drawable">Animated vector drawable</string>
 </resources>
