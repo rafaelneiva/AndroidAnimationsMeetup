@@ -1,6 +1,9 @@
 package com.rafaelneiva.androidanimations.ui.main
 
-import android.graphics.drawable.*
+import android.graphics.drawable.Animatable2
+import android.graphics.drawable.AnimatedVectorDrawable
+import android.graphics.drawable.AnimationDrawable
+import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -20,7 +23,28 @@ class DrawableFragment : Fragment() {
 
         animationDrawable(root)
 
-        val dots: AnimatedVectorDrawable  = (root.ivAnimVecDrawable.drawable as AnimatedVectorDrawable)
+        animatedVectorDrawableDots(root)
+
+        root.ivSearch.setOnClickListener {
+            (root.ivSearch.drawable as AnimatedVectorDrawable).start()
+        }
+
+        val animals: AnimatedVectorDrawable = (root.ivAnimals.drawable as AnimatedVectorDrawable)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            animals.registerAnimationCallback(object : Animatable2.AnimationCallback() {
+                    override fun onAnimationEnd(drawable: Drawable) {
+                        super.onAnimationEnd(drawable)
+                        animals.start()
+                    }
+                })
+        }
+        animals.start()
+
+        return root
+    }
+
+    private fun animatedVectorDrawableDots(root: View) {
+        val dots: AnimatedVectorDrawable = (root.ivAnimVecDrawable.drawable as AnimatedVectorDrawable)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             dots.registerAnimationCallback(object : Animatable2.AnimationCallback() {
                 override fun onAnimationEnd(drawable: Drawable) {
@@ -30,8 +54,6 @@ class DrawableFragment : Fragment() {
             })
         }
         dots.start()
-
-        return root
     }
 
     private fun animationDrawable(root: View) {

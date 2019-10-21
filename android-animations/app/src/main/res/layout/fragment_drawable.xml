@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#fff"
     android:clipToPadding="false"
     android:padding="32dp">
@@ -41,6 +40,24 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/animated_vector_drawable" />
+
+        <ImageView
+            android:id="@+id/ivSearch"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="32dp"
+            android:src="@drawable/search_to_close"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/ivAnimals"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="32dp"
+            android:src="@drawable/morphing_animals"
+            tools:ignore="ContentDescription" />
 
     </LinearLayout>
 
