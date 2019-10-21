@@ -2,7 +2,9 @@ package com.rafaelneiva.androidanimations.ui.main
 
 import android.content.Intent
 import android.os.Bundle
+import android.transition.Explode
 import android.transition.Fade
+import android.transition.TransitionManager
 import android.transition.TransitionSet
 import android.view.LayoutInflater
 import android.view.View
@@ -37,6 +39,20 @@ class TransitionFragment : Fragment() {
             val options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), p1, p2)
 
             startActivity(i, options.toBundle())
+        }
+
+        root.btTranMan.setOnClickListener {
+//            TransitionManager.beginDelayedTransition(root.clTranMan, Slide(Gravity.END))
+//            TransitionManager.beginDelayedTransition(root.clTranMan, Slide(Gravity.TOP))
+            TransitionManager.beginDelayedTransition(root.clTranMan, Fade())
+//            TransitionManager.beginDelayedTransition(root.clTranMan, Explode())
+            if (root.tvTranMan.visibility == View.VISIBLE) {
+                root.tvTranMan.visibility = View.INVISIBLE
+                root.tvTranMan2.visibility = View.VISIBLE
+            } else {
+                root.tvTranMan.visibility = View.VISIBLE
+                root.tvTranMan2.visibility = View.INVISIBLE
+            }
         }
 
         return root

@@ -43,6 +43,47 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clTranMan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp">
+
+            <Button
+                android:id="@+id/btTranMan"
+                style="@android:style/Widget.Material.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/animate"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvTranMan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/transition_manager"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@id/btTranMan"
+                app:layout_constraintStart_toEndOf="@id/btTranMan"
+                app:layout_constraintTop_toTopOf="@id/btTranMan" />
+
+            <TextView
+                android:id="@+id/tvTranMan2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:text="@string/transition_manager"
+                android:textSize="20sp"
+                android:visibility="gone"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="@id/tvTranMan"
+                app:layout_constraintEnd_toEndOf="@id/tvTranMan"
+                app:layout_constraintTop_toBottomOf="@id/tvTranMan"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </LinearLayout>
 
 </ScrollView>
