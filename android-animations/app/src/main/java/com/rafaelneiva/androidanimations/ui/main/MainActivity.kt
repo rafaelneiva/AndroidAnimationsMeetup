@@ -1,10 +1,10 @@
-package com.rafaelneiva.androidanimations
+package com.rafaelneiva.androidanimations.ui.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
-import com.rafaelneiva.androidanimations.ui.main.SectionsPagerAdapter
+import com.rafaelneiva.androidanimations.R
 
 class MainActivity : AppCompatActivity() {
 
