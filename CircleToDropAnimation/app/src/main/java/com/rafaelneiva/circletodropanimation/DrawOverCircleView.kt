@@ -53,7 +53,6 @@ class DrawOverCircleView : View {
         val cy = mCircleRect.centerY()
         val angle = Math.toRadians(mAngle).toFloat()
         val scaleMarkSize = radius - resources.displayMetrics.density * 8
-        canvas.save()
         canvas.drawArc(mCircleRect, 0f, 360f, false, mCirclePaint)
         val xPos = (cx + radius * sin(angle.toDouble())).toFloat()
         val yPos = (cy - radius * cos(angle.toDouble())).toFloat()
@@ -67,11 +66,9 @@ class DrawOverCircleView : View {
         val stopX = (cx + (radius - scaleMarkSize) * sin(angle.toDouble())).toFloat()
         val stopY = (cy - (radius - scaleMarkSize) * cos(angle.toDouble())).toFloat()
         canvas.drawLine(xPos, yPos, stopX, stopY, mCirclePaint)
-        canvas.restore()
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-
         val desiredWidth = 100
         val desiredHeight = 100
 
@@ -83,40 +80,28 @@ class DrawOverCircleView : View {
         val width: Int
         val height: Int
 
-        //Measure Width
+        // Measure width
         width = when (widthMode) {
-            MeasureSpec.EXACTLY -> { //Must be this size
-                widthSize
-            }
-            MeasureSpec.AT_MOST -> { //Can't be bigger than...
-                min(desiredWidth, widthSize)
-            }
-            else -> { //Be whatever you want
-                desiredWidth
-            }
+            MeasureSpec.EXACTLY -> widthSize //Must be this size
+            MeasureSpec.AT_MOST -> min(desiredWidth, widthSize) //Can't be bigger than...
+            else -> desiredWidth //Be whatever you want
         }
 
-        //Measure Height
+        // Measure height
         height = when (heightMode) {
-            MeasureSpec.EXACTLY -> { //Must be this size
-                heightSize
-            }
-            MeasureSpec.AT_MOST -> { //Can't be bigger than...
-                min(desiredHeight, heightSize)
-            }
-            else -> { //Be whatever you want
-                desiredHeight
-            }
+            MeasureSpec.EXACTLY -> heightSize //Must be this size
+            MeasureSpec.AT_MOST -> min(desiredHeight, heightSize) //Can't be bigger than...
+            else -> desiredHeight //Be whatever you want
         }
 
-        //MUST CALL THIS
+        // Must call this
         setMeasuredDimension(width, height)
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
-        mHeight = this.height.toFloat()
-        mWidth = this.width.toFloat()
+        mHeight = h.toFloat()
+        mWidth = w.toFloat()
         mCircleRect =
             RectF(
                 0 + mCirclePadding,
